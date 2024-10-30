@@ -1,0 +1,13 @@
+name: strapi-boilerplate
+
+on: push
+jobs:
+    buld:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - run: echo "Имя текущего воркфлоу - $GITHUB_WORKFLOW"
+            - run: ls -la
+            - run: make setup
+            - run: make test
+            - run: make lint
