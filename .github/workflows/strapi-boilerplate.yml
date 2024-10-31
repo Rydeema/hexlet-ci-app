@@ -6,7 +6,12 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - run: echo "Имя текущего воркфлоу - $GITHUB_WORKFLOW"
+              with:
+                node-version: '18.x'
+                cache: 'npm'
+            - uses: hexlet-components/hello-from-hexlet-action@release
+
+            - run: echo "Workflow - $GITHUB_WORKFLOW"
             - run: ls -la
             - run: make setup
             - run: make test
